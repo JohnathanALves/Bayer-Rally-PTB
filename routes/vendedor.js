@@ -19,13 +19,9 @@ var isVendedor = function (req, res, next) {
 
 module.exports = function(passport){
 
-  router.get('/wow', isAuthenticated , function(req, res, next){
-    return res.send('uhuuul1');
-  });
-
-  router.get('/teste', isVendedor , function(req, res, next){
-    return res.send('uhuuul');
-  });
+	router.get('pedido/novo', isVendedor, function(req, res, next){
+		var pedidoCreate = require('../controllers/pedidoCreate');
+	});
 
   return router;
 }

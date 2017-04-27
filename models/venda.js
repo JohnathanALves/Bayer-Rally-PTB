@@ -3,7 +3,6 @@ var Schema = mongoose.Schema;
 var autoIncrement = require('mongoose-auto-increment');
 
 var vendaSchema = Schema({
-  _id       :  {type: Number},
   data      : Date,
   produtos  : [{
     codigo    : String,
@@ -15,5 +14,4 @@ var vendaSchema = Schema({
   vendedor    : { type: Number, ref: 'User'}
 });
 
-userSchema.plugin(autoIncrement.plugin, 'Venda');
 module.exports = mongoose.model('Venda', vendaSchema);
