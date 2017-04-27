@@ -18,7 +18,7 @@ module.exports = function(passport){
     }
   });
 
-  router.get('/isvendedor', function(req, res, next){
+  router.get('/isvendedor', cors(),function(req, res, next){
     if(req.isAuthenticated()){
       if(req.user.isVendedor){
         return res.json({status:'true'});

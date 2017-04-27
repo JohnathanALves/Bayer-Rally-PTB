@@ -27,7 +27,7 @@ mongoose.connection.on('disconnected', function () {
 });
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Configuring Passport
