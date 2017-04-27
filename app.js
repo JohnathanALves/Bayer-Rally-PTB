@@ -2,6 +2,7 @@ var express     = require('express')
   , app         = express()
   , bodyParser  = require('body-parser')
   , mongoose    = require('mongoose')
+  , cors  	    = require('cors')
 
 //var autoIncrement = require('mongoose-auto-increment');
 // conexao com MlAB
@@ -32,6 +33,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Configuring Passport
 var passport = require('passport');
 var expressSession = require('express-session');
+
+app.use(cors());
 
 app.use(expressSession({secret: 'web-app-rally-Secret-Key-LA-LA-LAND'}));
 app.use(passport.initialize());
