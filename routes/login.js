@@ -1,6 +1,6 @@
 var express = require('express');
 var router  = express.Router();
-
+var cors  	= require('cors')`;`
 var isAuthenticated = function (req, res, next) {
 		if (req.isAuthenticated())
 		return res.json({status: 'true'});
