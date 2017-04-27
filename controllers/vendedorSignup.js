@@ -12,17 +12,21 @@ module.exports = function(req, res, next) {
   var userFullName = req.body.fullname;
   var revendaID = req.user.userID;
 
+  console.log(userID);
+  console.log(userpass);
+  console.log(usermail);
+  console.log(userFullName);
+  console.log(revendaID);
+  
   if(userID == undefined || userpass == undefined || usermail == undefined || userFullName == undefined || revendaID == undefined){
     console.log('Existem dados inválidos:');
     return res.json('Existem dados inválidos:');
   }
-  console.log ('DEbug1');
   User.findOne({'userID' : userID}, function (err, user ){
     if(err){
       console.log ('erro ao buscar userID: '+ err);
       return res.json('erro');
     }
-    console.log ('DEbug2');
     if(user){
       console.log('ja existe este usuario! : '+ user);
       return res.json('ja existe este usuario! : '+ user);
@@ -42,14 +46,12 @@ module.exports = function(req, res, next) {
           console.log ('erro ao salvar newUser: '+ err);
           return res.json('erro');
         }
-        console.log ('DEbug4');
       });
       newVendedor.save(function(err){
         if(err){
           console.log ('erro ao salvar newVendedor: '+ err);
           return res.json('erro');
         }
-        console.log ('DEbug5');
       });
       Revenda.findOne({'cnpj':revendaID}, function(err, revenda){
         if(err){
@@ -57,14 +59,12 @@ module.exports = function(req, res, next) {
           return res.json('erro');
         }
         if(revenda){
-          console.log ('DEbug6');
           (revenda.vendedores).push = newVendedor.cpf;
           revenda.save(function(err){
             if(err){
               console.log ('erro ao adicionar vendedor na revenda: '+ err);
               return res.json('erro');
             }
-            console.log ('DEbug7');
             return res.json('criou');
           });
         }
