@@ -17,7 +17,7 @@ module.exports = function(req, res, next) {
   console.log(usermail);
   console.log(userFullName);
   console.log(revendaID);
-  
+
   if(userID == undefined || userpass == undefined || usermail == undefined || userFullName == undefined || revendaID == undefined){
     console.log('Existem dados inválidos:');
     return res.json('Existem dados inválidos:');
@@ -53,12 +53,14 @@ module.exports = function(req, res, next) {
           return res.json('erro');
         }
       });
+      console.log('aqui');
       Revenda.findOne({'cnpj':revendaID}, function(err, revenda){
         if(err){
           console.log ('erro ao buscar revenda by ID: '+ err);
           return res.json('erro');
         }
         if(revenda){
+          console.log('aqui');
           (revenda.vendedores).push = newVendedor.cpf;
           revenda.save(function(err){
             if(err){
@@ -68,6 +70,7 @@ module.exports = function(req, res, next) {
             return res.json('criou');
           });
         }
+        console.log('aquii');
       });
     }
   });

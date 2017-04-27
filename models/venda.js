@@ -6,10 +6,11 @@ var vendaSchema = Schema({
   data      : Date,
   produtos  : [{
     codigo    : String,
-    descicao  : String,
+    descricao  : String,
     classe    : String,
     pontos    : Number,
-    preco     : Number
+    preco     : Number,
+    qtde      : Number
   }],
   vendedor    : { type: Number, ref: 'User'}
 });

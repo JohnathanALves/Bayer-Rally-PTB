@@ -4,7 +4,7 @@ var Revenda = require('../models/revenda');
 
 module.exports = function(req, res){
   var newUser = new User();
-  newUser.userID    = '08819958430';
+  newUser.userID    = '24444317000185';
   newUser.password  =  createHash('123456');
   newUser.isVendedor = false;
   newUser.save(function(err) {
